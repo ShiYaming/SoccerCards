@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoccerCards 估价台</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">⚽ SoccerCards <span class="brand-sub">估价台</span></div>
+    <div class="search-row">
+      <input id="search" type="search" placeholder="搜索球员 / 系列 / 卡号 / 平行…"
+             autocomplete="off">
+      <select id="set-filter"><option value="">全部系列</option></select>
+    </div>
+  </header>
+
+  <section class="stats-bar" id="stats-bar"></section>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head">
+        <h2 id="table-title">主流卡片 · 按成交热度排序</h2>
+        <span class="hint" id="table-hint"></span>
+      </div>
+      <div class="table-wrap">
+        <table id="card-table">
+          <thead>
+            <tr>
+              <th>球员</th><th>系列</th><th>卡号</th><th>平行</th>
+              <th class="num">成交</th><th class="num">均价</th><th class="num">中位价</th>
+              <th class="num">当前估值</th><th class="num">3个月</th>
+              <th class="num">6个月</th><th class="num">1年</th>
+            </tr>
+          </thead>
+          <tbody id="card-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel detail-panel" id="detail-panel" hidden>
+      <div class="panel-head">
+        <h2 id="detail-title">卡片详情</h2>
+        <button id="detail-close" title="关闭">×</button>
+      </div>
+      <div id="detail-body"></div>
+    </section>
+  </main>
+
+  <footer>
+    数据来源：TCDB（卡片主数据）· Transfermarkt（球员市值）· eBay 已售成交（Apify 采集）。
+    估值为参考价，不构成投资建议。
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>
